@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Oswald:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,6 +10,11 @@
     --foreground: 17 24 39;
     --primary: 30 58 138; /* Navy blue */
     --accent: 185 28 28; /* Classic red */
+
+    /* Font families */
+    --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --font-body: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    --font-label: 'Oswald', 'Arial Narrow', Arial, sans-serif;
   }
   
   html {
@@ -17,7 +24,32 @@
   
   body {
     @apply bg-white text-gray-900;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.7;
+    font-weight: 400;
+    font-optical-sizing: auto;
+  }
+
+  /* Headlines — Playfair Display for editorial gravitas */
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  h4, h5, h6 {
+    font-family: var(--font-label);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* Navigation, labels, badges — Oswald for authority */
+  nav, button, label, .badge, .status, th {
+    font-family: var(--font-label);
+    letter-spacing: 0.05em;
   }
 }
 
@@ -29,20 +61,35 @@
   /* Government header */
   .gov-header {
     @apply bg-blue-900 border-b-4 border-red-700;
+    font-family: var(--font-label);
   }
   
   /* Card styles */
   .political-card {
     @apply bg-white border-2 border-gray-200 shadow-sm hover:shadow-lg transition-shadow;
   }
+
+  /* Card headlines use Playfair */
+  .political-card h2,
+  .political-card h3 {
+    font-family: var(--font-display);
+  }
   
-  /* Button styles */
+  /* Button styles — Oswald for punchy authority */
   .vote-button {
     @apply bg-blue-900 hover:bg-blue-800 text-white font-semibold px-6 py-3 rounded transition-colors;
+    font-family: var(--font-label);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.875rem;
   }
   
   .vote-button-alt {
     @apply bg-red-700 hover:bg-red-800 text-white font-semibold px-6 py-3 rounded transition-colors;
+    font-family: var(--font-label);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.875rem;
   }
   
   /* Political accents */
@@ -53,11 +100,40 @@
   .rep-accent {
     @apply text-red-700 border-red-700;
   }
+
+  /* Pull quotes — italic Playfair */
+  .pull-quote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.5rem;
+    line-height: 1.4;
+  }
+
+  /* Section labels / eyebrows — Oswald small caps feel */
+  .section-label {
+    font-family: var(--font-label);
+    font-weight: 500;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .font-label {
+    font-family: var(--font-label);
   }
 }
 
@@ -149,16 +225,32 @@ html {
 /* Bill status badges */
 .status-passed {
   @apply bg-blue-100 text-blue-900 border-2 border-blue-900;
+  font-family: var(--font-label);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
 }
 
 .status-failed {
   @apply bg-red-100 text-red-900 border-2 border-red-700;
+  font-family: var(--font-label);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
 }
 
 .status-pending {
   @apply bg-gray-100 text-gray-900 border-2 border-gray-400;
+  font-family: var(--font-label);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
 }
 
 .status-in-committee {
   @apply bg-white text-blue-900 border-2 border-blue-900;
+  font-family: var(--font-label);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
 }
