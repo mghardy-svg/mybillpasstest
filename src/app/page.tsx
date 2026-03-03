@@ -70,7 +70,14 @@ export default function HomePage() {
       <section className="bg-white py-20 border-b-4 border-blue-900">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="flex justify-center mb-6">
+            <div className="flex justify-center mb-4">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg"
+                alt="California State Flag"
+                className="h-20 w-auto drop-shadow-md"
+              />
+            </div>
+          <div className="flex justify-center mb-6">
               <Badge className="bg-blue-900 text-white border-0 px-6 py-2 text-sm font-semibold">
                 Beta Release — 2026 Election Cycle
               </Badge>
